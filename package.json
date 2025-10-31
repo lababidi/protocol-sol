@@ -5,8 +5,8 @@
   "scripts": {
     "lint:fix": "prettier */*.js \"*/**/*{.js,.ts}\" -w",
     "lint": "prettier */*.js \"*/**/*{.js,.ts}\" --check",
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "cd app && next dev",
+    "build": "cd app && next build",
     "test:phase1": "ts-mocha -p ./tsconfig.json -t 300000 tests/testnet_manual.ts",
     "test:phase2": "ts-mocha -p ./tsconfig.json -t 300000 tests/phase2_testnet.ts",
     "test:phase3": "ts-mocha -p ./tsconfig.json -t 300000 tests/phase3_testnet.ts",
