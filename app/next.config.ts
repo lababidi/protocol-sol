@@ -2,7 +2,6 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  turbopack: {},
   webpack: (config, { isServer }) => {
     config.resolve.fallback = {
       ...config.resolve.fallback,
@@ -24,6 +23,12 @@ const nextConfig: NextConfig = {
       topLevelAwait: true,
       asyncWebAssembly: true,
     };
+
+    // Add JSON loader
+    config.module.rules.push({
+      test: /\.json$/,
+      type: 'json',
+    });
 
     // Ignore node-specific modules when bundling for the browser
     if (!isServer) {
