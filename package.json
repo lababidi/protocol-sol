@@ -1,0 +1,44 @@
+{
+  "name": "sol_option_protocol",
+  "version": "0.1.0",
+  "description": "Fully collateralized American options protocol on Solana",
+  "scripts": {
+    "lint:fix": "prettier */*.js \"*/**/*{.js,.ts}\" -w",
+    "lint": "prettier */*.js \"*/**/*{.js,.ts}\" --check",
+    "dev": "yarn dev",
+    "build": "NEXT_TELEMETRY_DISABLED=1 yarn build || exit 1",
+    "test:phase1": "ts-mocha -p ./tsconfig.json -t 300000 tests/testnet_manual.ts",
+    "test:phase2": "ts-mocha -p ./tsconfig.json -t 300000 tests/phase2_testnet.ts",
+    "test:phase3": "ts-mocha -p ./tsconfig.json -t 300000 tests/phase3_testnet.ts",
+    "test:phase4": "ts-mocha -p ./tsconfig.json -t 300000 tests/phase4_testnet.ts",
+    "test:phase5": "ts-mocha -p ./tsconfig.json -t 300000 tests/phase5_testnet.ts",
+    "test:greek-fi": "ts-mocha -p ./tsconfig.json -t 300000 tests/greek_fi_compliance.ts",
+    "test:integration": "ts-mocha -p ./tsconfig.json -t 300000 tests/integration_testnet.ts",
+    "test:integration:verbose": "ts-mocha -p ./tsconfig.json -t 300000 --reporter spec tests/integration_testnet.ts",
+    "test:pda-isolation": "ts-mocha -p ./tsconfig.json -t 300000 tests/pda_isolation.ts",
+    "test:marketplace": "ts-mocha -p ./tsconfig.json -t 300000 tests/spl_marketplace_demo.ts",
+    "test:marketplace:all": "ts-mocha -p ./tsconfig.json -t 300000 tests/spl_marketplace*.ts tests/marketplace*.ts"
+  },
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.32.0",
+    "@solana/spl-token": "^0.4.1",
+    "@solana/web3.js": "^1.95.0",
+    "autoprefixer": "^10.4.21",
+    "next": "^16.0.1",
+    "postcss": "^8.5.6",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwindcss": "^4.1.16"
+  },
+  "devDependencies": {
+    "@types/bn.js": "^5.1.0",
+    "@types/chai": "^4.3.0",
+    "@types/mocha": "^9.0.0",
+    "chai": "^4.3.4",
+    "mocha": "^9.0.3",
+    "prettier": "^2.6.2",
+    "ts-mocha": "^10.0.0",
+    "typescript": "^4.3.5"
+  },
+  "packageManager": "yarn@4.9.1+sha512.f95ce356460e05be48d66401c1ae64ef84d163dd689964962c6888a9810865e39097a5e9de748876c2e0bf89b232d583c33982773e9903ae7a76257270986538"
+}

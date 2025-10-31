@@ -1,0 +1,30 @@
+[toolchain]
+anchor_version = "0.32.0"
+
+[features]
+seeds = false
+skip-lint = false
+
+[programs.devnet]
+sol_option_protocol = "7a3MatFT2m6iHtZ3vYBoLRP4A1YBuophqGqoCz4p4JoP"
+spl_marketplace = "DooTSqB4vH54evV1DhPC7XEbXNq75D3k7weYiPTGbxYz"
+
+[programs.testnet]
+sol_option_protocol = "7a3MatFT2m6iHtZ3vYBoLRP4A1YBuophqGqoCz4p4JoP"
+spl_marketplace = "DooTSqB4vH54evV1DhPC7XEbXNq75D3k7weYiPTGbxYz"
+
+[programs.localnet]
+sol_option_protocol = "7a3MatFT2m6iHtZ3vYBoLRP4A1YBuophqGqoCz4p4JoP"
+spl_marketplace = "DooTSqB4vH54evV1DhPC7XEbXNq75D3k7weYiPTGbxYz"
+
+[registry]
+url = "https://api.apr.dev"
+
+[provider]
+cluster = "Localnet"
+wallet = "~/.config/solana/id.json"
+
+[scripts]
+test = "npx ts-mocha -p ./tsconfig.json -t 1000000 tests/spl_marketplace_demo.ts"
+test-options = "npx ts-mocha -p ./tsconfig.json -t 1000000 tests/local_test.ts"
+test-all = "npx ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
