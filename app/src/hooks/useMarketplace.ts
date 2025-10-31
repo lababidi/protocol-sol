@@ -59,8 +59,6 @@ export function useCreateMarket() {
           creator: publicKey,
           baseMint: baseMintPk,
           quoteMint: quoteMintPk,
-          market: marketPda,
-          systemProgram: SystemProgram.programId,
         })
         .rpc();
 
@@ -137,12 +135,9 @@ export function usePlaceOrder() {
         .accounts({
           user: publicKey,
           market: marketPk,
-          order: orderPda,
           depositMint: depositMintPk,
           userDepositAccount: userDepositAccountPk,
-          escrow: escrowPda,
           tokenProgram: TOKEN_PROGRAM_ID,
-          systemProgram: SystemProgram.programId,
         });
 
       if (preInstructions.length > 0) {
@@ -196,7 +191,7 @@ export function useFillOrder() {
       const makerReceiveAccountPk = new PublicKey(makerReceiveAccount);
 
       // Check which accounts need to be created
-      const preInstructions = [];
+      const preInstructions: any[] = [];
 
       const checkAndCreateATA = async (ata: PublicKey, mint: PublicKey, owner: PublicKey) => {
         try {
@@ -226,7 +221,6 @@ export function useFillOrder() {
           makerOrder: orderPk,
           baseMint: market.baseMint,
           quoteMint: market.quoteMint,
-          makerEscrow: escrowPda,
           takerBaseAccount: takerBaseAccountPk,
           takerQuoteAccount: takerQuoteAccountPk,
           makerReceiveAccount: makerReceiveAccountPk,

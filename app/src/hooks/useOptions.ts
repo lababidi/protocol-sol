@@ -211,7 +211,7 @@ export function useMintOption() {
             console.log('Amount:', amountBN.toString());
 
             // Check which ATAs need to be created and add preInstructions
-            const preInstructions = [];
+            const preInstructions: any[] = [];
 
             // Helper function to check if account exists
             const checkAndCreateATA = async (ata: PublicKey, mint: PublicKey) => {

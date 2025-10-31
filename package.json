@@ -2,6 +2,10 @@
   "name": "sol_option_protocol",
   "version": "0.1.0",
   "description": "Fully collateralized American options protocol on Solana",
+  "private": true,
+  "workspaces": [
+    "app"
+  ],
   "scripts": {
     "lint:fix": "prettier */*.js \"*/**/*{.js,.ts}\" -w",
     "lint": "prettier */*.js \"*/**/*{.js,.ts}\" --check",
